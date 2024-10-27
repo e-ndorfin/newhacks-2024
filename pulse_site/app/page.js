@@ -162,7 +162,7 @@ export default function Home() {
                   {Object.entries(companyTypes).map(([key, value]) => (
                     <button
                       key={key} // Use the key as a unique identifier
-                      onClick={() => handleSelectType(key)} // Pass the key to the handler
+                      onClick={() => handleSelectType(value)} // Pass the key to the handler
                       className="block px-4 py-2 text-sm text-gray-700 w-full text-left"
                       role="menuitem"
                     >
