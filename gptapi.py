@@ -4,9 +4,21 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from dotenv import load_dotenv
 import os
+from pymongo import MongoClient
 
 # Load environment variables
 load_dotenv('keys.env')
+
+
+client = MongoClient('mongodb+srv://zacharytang24:zDTAalcoWz5Ock7Z@pulse.2x4ku.mongodb.net/')
+
+db = client['pulse_db']
+
+collection = db['users']
+
+companies = collection.find()
+
+client.close()
 
 # Set up OpenAI and Mailgun API keys from the environment
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -62,24 +74,24 @@ def send_email_with_mailgun(subject, recipient_email, email_content):
         print("Failed to send email with Mailgun:", e)
 
 # Example usage
-company_info = {
-    "company_name": "Telus",
-    "industry": "Telecommunications",
-    "location": "Ontario",
-    "email": "patrickjedrzejko@gmail.com",
-    "disaster_name": "Flood"
-}
+for company in companies: 
+    company_info = {
+        "company_name": company['name'],
+        "industry": company['company_type'],
+        "location": company['state'],
+        "email": company['email'],
+    }
 
-generated_email_content = generate_disaster_email(
-    company_info['company_name'], 
-    company_info['industry'], 
-    company_info['location'], 
-    company_info['disaster_name']
-)
-
-if generated_email_content:
-    send_email_with_mailgun(
-        subject="Important Notice: Natural Disaster Alert for Ontario Region",
-        recipient_email=company_info['email'],
-        email_content=generated_email_content
+    generated_email_content = generate_disaster_email(
+        company_info['company_name'], 
+        company_info['industry'], 
+        company_info['location'], 
+        'Hurricane Helene'
     )
+
+    if generated_email_content:
+        send_email_with_mailgun(
+            subject="Important Notice: Natural Disaster Alert for Ontario Region",
+            recipient_email=company_info['email'],
+            email_content=generated_email_content
+        )
