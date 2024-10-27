@@ -1,7 +1,9 @@
 import requests
+import re
 from bs4 import BeautifulSoup
 import pandas as pd
 from openai import OpenAI
+from scrape_weather_alerts import alert_list 
 
 
 keywords = [
@@ -30,41 +32,51 @@ urls = df[df['state'] == state]['url']
 list_urls = list(urls)
 # urls = df.iloc[:,0]
 
-print(list_urls)
+#print(list_urls)
 
-for url in list_urls: 
-    try:
-        response = requests.get(url,timeout=10) 
-        response.raise_for_status() 
-        html_content = response.text
 
-        soup = BeautifulSoup(html_content, "html.parser")
-        text = soup.get_text().lower()
-        found_keywords = {keyword for keyword in keywords if keyword in text}
 
-        links = soup.select('.link')
-        for link in links:
-            print(link.get('href')) 
+def scrape_main_page():
+    headings = []
+    for url in list_urls: 
+        try:
+            response = requests.get(url,timeout=10) 
+            response.raise_for_status() 
+            html_content = response.text
 
-        if found_keywords:
-            print(found_keywords)
-            source = response.text
+            soup = BeautifulSoup(html_content, "html.parser")
+            text = soup.get_text().lower()
+            found_keywords = {keyword for keyword in keywords if keyword in text}
 
-            client = OpenAI()
+            #links = soup.select('.link')
+            #for link in links:
+                #print(link.get('href')) 
 
-            completion = client.chat.completions.create(
-            model="gpt-4o",
-            messages={"role": "system", 
-                    "content": "Find the headers related to natural disasters and their respective links in the following html newspaper sources.",
-                    "role": "user",
-                    "content": source})
+            if found_keywords:
+                #print (keywords)
+                for keyword in found_keywords:
+                    # print(text.find(keyword))
+                    elements = soup.find_all(string=re.compile(keyword))
+                
+                    for element in elements:
+                        # Get the full text within the parent tag
+                        headings.append(element.parent.get_text(strip=True))
+######
 
-            print(completion.choices[0].message)
-        else:
+                #locate element that keyword is in
+                #print content of entire element 
+                #feed into Chatgpt to test if element content is related to natural disasters. 
+######
+            else:
+                pass
+
+        except requests.exceptions.Timeout:
+            pass
+        except requests.exceptions.ConnectionError:
             pass
 
-    except requests.exceptions.Timeout:
-        pass
-    except requests.exceptions.ConnectionError:
-        pass
+    return headings
 
+    
+
+a = scrape_main_page()
