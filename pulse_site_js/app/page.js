@@ -6,7 +6,9 @@ export default function Home() {
   const [email, setEmail] = useState('');
   const [companyName, setCompanyName] = useState('');
   const [companyType, setCompanyType] = useState('');
-  const [isOpen, setIsOpen] = useState(false);
+  const [state, setState] = useState('');
+  const [isCompanyTypeOpen, setIsCompanyTypeOpen] = useState(false); // Separate state for company type dropdown
+  const [isStateOpen, setIsStateOpen] = useState(false); // Separate state for states dropdown
 
   const companyTypes = {
     vendor: "Vendor",
@@ -67,15 +69,50 @@ export default function Home() {
     WY: "Wyoming",
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle the form submission, e.g., send data to API or log it
-    console.log({ email, companyName, companyType });
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent the default form submission
+  
+    // Prepare the data to send
+    const data = {
+      email,
+      company_name: companyName, // Change 'companyName' to 'name' to match API expectation
+      company_type: companyType, // Change 'companyType' to 'company_type' to match API expectation
+      state,
+    };
+  
+    console.log('Data:', data);
+    
+    try {
+      const response = await fetch('/api/usermodel/submit/', { // Adjust the API endpoint URL as needed
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+  
+      const result = await response.json();
+      console.log('Success:', result);
+      // Optionally, reset the form or provide feedback to the user here
+    } catch (error) {
+      console.error('Error:', error);
+      // Handle error (e.g., show an error message to the user)
+    }
   };
+  
 
   const handleSelectType = (type) => {
     setCompanyType(type);
-    setIsOpen(false); // Close dropdown after selection
+    setIsCompanyTypeOpen(false); // Close company type dropdown after selection
+  };
+
+  const handleSelectState = (abbreviation) => {
+    setState(abbreviation);
+    setIsStateOpen(false); // Close states dropdown after selection
   };
 
   const capitalizeFirstLetter = (str) => { 
@@ -125,9 +162,9 @@ export default function Home() {
               type="button"
               className="flex w-full items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
               id="menu-button"
-              aria-expanded={isOpen}
+              aria-expanded={isCompanyTypeOpen}
               aria-haspopup="true"
-              onClick={() => setIsOpen((prev) => !prev)} // Toggle dropdown
+              onClick={() => setIsCompanyTypeOpen((prev) => !prev)} // Toggle company type dropdown
             >
               <span className="flex-grow text-left">{companyType ? capitalizeFirstLetter(companyType) : ""}</span>
               <svg
@@ -144,9 +181,7 @@ export default function Home() {
               </svg>
             </button>
 
-
-
-            {isOpen && (
+            {isCompanyTypeOpen && (
               <div
                 className="absolute left-0 z-10 mt-2 w-56 origin-top-left divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                 role="menu"
@@ -178,11 +213,11 @@ export default function Home() {
               type="button"
               className="flex w-full items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
               id="menu-button"
-              aria-expanded={isOpen}
+              aria-expanded={isStateOpen}
               aria-haspopup="true"
-              onClick={() => setIsOpen((prev) => !prev)} // Toggle dropdown
+              onClick={() => setIsStateOpen((prev) => !prev)} // Toggle states dropdown
             >
-              <span className="flex-grow text-left">{states ? states : ""}</span>
+              <span className="flex-grow text-left">{state ? states[state] : ""}</span>
               <svg
                 className="h-5 w-5 text-gray-400"
                 viewBox="0 0 20 20"
@@ -197,11 +232,9 @@ export default function Home() {
               </svg>
             </button>
 
-
-
-            {isOpen && (
+            {isStateOpen && (
               <div
-                className="absolute left-0 z-10 mt-2 w-56 origin-top-left divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                className="absolute left-0 z-10 mt-2 w-56 origin-top-left divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none max-h-40 overflow-y-auto" // Add max height and overflow for scrolling
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="menu-button"
@@ -210,7 +243,7 @@ export default function Home() {
                   {Object.entries(states).map(([key, value]) => (
                     <button
                       key={key} // Use the key as a unique identifier
-                      onClick={() => handleSelectType(value)} // Pass the key to the handler
+                      onClick={() => handleSelectState(key)} // Pass the key to the handler
                       className="block px-4 py-2 text-sm text-gray-700 w-full text-left"
                       role="menuitem"
                     >
@@ -223,15 +256,16 @@ export default function Home() {
           </div>
         </div>
 
-        
-
-        <button
-          type="submit"
-          className="w-full bg-blue-500 text-white p-2 rounded mt-4 hover:bg-blue-600"
-        >
-          Submit
-        </button>
+        <div className="mb-6">
+          <button
+            type="submit"
+            className="w-full bg-blue-500 text-white font-semibold py-2 rounded hover:bg-blue-600"
+            onClick={handleSubmit}
+          >
+            Submit
+          </button>
+        </div>
       </form>
     </div>
-  );
+    );
 }
