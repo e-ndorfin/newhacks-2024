@@ -1,6 +1,66 @@
 import requests, json, pprint
 from datetime import datetime
 
+state_codes = {
+    "AL": "qlabama",
+    "AK": "qlaska",
+    "AZ": "qrizona",
+    "AR": "qrkansas",
+    "CA": "dalifornia",
+    "CO": "dolorado",
+    "CT": "donnecticut",
+    "DE": "eelaware",
+    "FL": "florida",
+    "GA": "georgia",
+    "HI": "hawaii",
+    "ID": "idaho",
+    "IL": "illinois",
+    "IN": "indiana",
+    "IA": "iowa",
+    "KS": "kansas",
+    "KY": "kentucky",
+    "LA": "louisiana",
+    "ME": "maine",
+    "MD": "maryland",
+    "MA": "massachusetts",
+    "MI": "michigan",
+    "MN": "minnesota",
+    "MS": "mississippi",
+    "MO": "missouri",
+    "MT": "montana",
+    "NE": "nebraska",
+    "NV": "nevada",
+    "NH": "new hampshire",
+    "NJ": "new jersey",
+    "NM": "new mexico",
+    "NY": "new york",
+    "NC": "north carolina",
+    "ND": "north dakota",
+    "OH": "ohio",
+    "OK": "oklahoma",
+    "OR": "oregon",
+    "PA": "pennsylvania",
+    "RI": "rhode island",
+    "SC": "south carolina",
+    "SD": "south dakota",
+    "TN": "tennessee",
+    "TX": "texas",
+    "UT": "utah",
+    "VT": "vermont",
+    "VA": "virginia",
+    "WA": "washington",
+    "WV": "west virginia",
+    "WI": "wisconsin",
+    "WY": "wyoming",
+    "DC": "district of columbia",
+    "AS": "american samoa",
+    "GU": "guam",
+    "MP": "northern mariana islands",
+    "PR": "puerto rico",
+    "VI": "u.s. virgin islands",
+    "UM": "u.s. minor outlying islands"
+}
+
 def alert_list(from_file=False, severity="Extreme") -> list[dict]:
     """
     Returns a list of dictionaries, each dictionary is an alert.
@@ -20,7 +80,7 @@ def alert_list(from_file=False, severity="Extreme") -> list[dict]:
         data = d.json()
 
     alerts_raw = data["features"]
-    alerts = []
+    alerts = [] 
 
     for elem in alerts_raw:
         alerts.append({})
@@ -33,6 +93,8 @@ def alert_list(from_file=False, severity="Extreme") -> list[dict]:
         alerts[-1]["area_desc"] = elem["properties"]["areaDesc"]
         alerts[-1]["territory_codes"] = list({code[:2] for code in elem["properties"]["geocode"]["UGC"]})
         alerts[-1]["event"] = elem["properties"]["event"]
+        alerts[-1]["state"] = [state_codes[abbr] for abbr in alerts[-1]["territory_codes"] if abbr in state_codes]
+        
     
     return alerts
 
