@@ -7,6 +7,7 @@ import './globals.css';
 
 export default function Home() {
   const [email, setEmail] = useState('');
+  const [msg, setMsg] = useState("")
   const [companyName, setCompanyName] = useState('');
   const [companyType, setCompanyType] = useState('');
   const [state, setState] = useState('');
@@ -96,6 +97,7 @@ export default function Home() {
         body: JSON.stringify(data),
       });
   
+      setMsg("Added to mailing list!")
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -271,6 +273,7 @@ export default function Home() {
             Submit
           </button>
         </div>
+        <p className="text-black flex justify-center">{msg}</p>
       </form>
     </div>
     );
