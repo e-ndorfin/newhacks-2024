@@ -1,6 +1,7 @@
 "use client"; // Enables client-side features like hooks
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 import './globals.css';
 
@@ -132,8 +133,9 @@ export default function Home() {
         onSubmit={handleSubmit}
         className="bg-white p-8 rounded-lg shadow-md w-full max-w-sm form-box"
       >
-        <h2 className="text-2xl font-bold mb-6 text-center text-black">Pulse</h2>
-
+        <div className="flex justify-center">
+          <Image src="/pulse_orange.png" alt="" width={200} height={100}></Image>
+          </div>
         <div className="mb-4"> 
           <label className="block text-gray-700">Email <span className="text-red-500">*</span></label>
           <input
