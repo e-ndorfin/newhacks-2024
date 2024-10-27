@@ -20,25 +20,39 @@ keywords = [
     "contamination", "disease outbreak", "pandemic risk", "air quality", "water quality",
     "environmental impact", "ecosystem damage", "wildlife displacement", "community impact"]
 
+#url = "http://www.reflector.com/"
+
+state = 'alabama'
 df = pd.read_csv('USA_News_Sites.csv')
-urls = df.iloc[:,0]
+urls = df[df['state'] == state]['url']
+list_urls = list(urls)
+# urls = df.iloc[:,0]
 
-print(urls)
-url = "http://www.reflector.com/"
-response = requests.get(url)
-html_content = response.text
+print(list_urls)
 
-soup = BeautifulSoup(html_content, "html.parser")
-text = soup.get_text().lower()
-found_keywords = {keyword for keyword in keywords if keyword in text}
+for url in list_urls: 
+    try:
+        response = requests.get(url,timeout=10) 
+        response.raise_for_status() 
+        html_content = response.text
 
-links = soup.select('.link')
-for link in links:
-    print(link.get('href')) 
+        soup = BeautifulSoup(html_content, "html.parser")
+        text = soup.get_text().lower()
+        found_keywords = {keyword for keyword in keywords if keyword in text}
 
-if found_keywords:
-    print("Keywords found on the page:", found_keywords)
-else:
-    print("No keywords related to natural disasters found on the page.")
+        links = soup.select('.link')
+        for link in links:
+            print(link.get('href')) 
 
+        if found_keywords:
+            print("Keywords found on the page:", found_keywords)
+        else:
+            print("No keywords related to natural disasters found on the page.")
 
+    except requests.exceptions.Timeout:
+
+        print(f"Timeout occurred for {url}")
+        
+    except requests.exceptions.ConnectionError:
+        print(f"Connection error for {url}")
+        
