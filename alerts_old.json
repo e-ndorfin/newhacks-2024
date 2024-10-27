@@ -1,0 +1,450 @@
+{
+    "@context": [
+        "https://geojson.org/geojson-ld/geojson-context.jsonld",
+        {
+            "@version": "1.1",
+            "wx": "https://api.weather.gov/ontology#",
+            "@vocab": "https://api.weather.gov/ontology#"
+        }
+    ],
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.aaded06a16687e86bd85ac2f82eae3844c0e8813.001.1",
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -104.69,
+                            34.43
+                        ],
+                        [
+                            -104.34,
+                            34.350000000000001
+                        ],
+                        [
+                            -104.52000000000001,
+                            34.210000000000001
+                        ],
+                        [
+                            -104.70000000000002,
+                            34.289999999999999
+                        ],
+                        [
+                            -104.69,
+                            34.43
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.aaded06a16687e86bd85ac2f82eae3844c0e8813.001.1",
+                "@type": "wx:Alert",
+                "id": "urn:oid:2.49.0.1.840.0.aaded06a16687e86bd85ac2f82eae3844c0e8813.001.1",
+                "areaDesc": "De Baca, NM",
+                "geocode": {
+                    "SAME": [
+                        "035011"
+                    ],
+                    "UGC": [
+                        "NMC011"
+                    ]
+                },
+                "affectedZones": [
+                    "https://api.weather.gov/zones/county/NMC011"
+                ],
+                "references": [],
+                "sent": "2024-10-19T17:14:00-06:00",
+                "effective": "2024-10-19T17:14:00-06:00",
+                "onset": "2024-10-19T17:14:00-06:00",
+                "expires": "2024-10-19T17:24:00-06:00",
+                "ends": "2024-10-19T17:15:00-06:00",
+                "status": "Actual",
+                "messageType": "Alert",
+                "category": "Met",
+                "severity": "Extreme",
+                "certainty": "Observed",
+                "urgency": "Immediate",
+                "event": "Tornado Warning",
+                "sender": "w-nws.webmaster@noaa.gov",
+                "senderName": "NWS Albuquerque NM",
+                "headline": "Tornado Warning issued October 19 at 5:14PM MDT until October 19 at 5:15PM MDT by NWS Albuquerque NM",
+                "description": "The storm that prompted the warning has weakened below severe\nlimits, and no longer appears capable of producing a tornado.\nTherefore, the warning will be allowed to expire.",
+                "instruction": null,
+                "response": "Shelter",
+                "parameters": {
+                    "AWIPSidentifier": [
+                        "SVSABQ"
+                    ],
+                    "WMOidentifier": [
+                        "WWUS55 KABQ 192314"
+                    ],
+                    "NWSheadline": [
+                        "TORNADO WARNING WILL EXPIRE AT 515 PM MDT FOR WEST CENTRAL DE BACA COUNTY"
+                    ],
+                    "eventMotionDescription": [
+                        "2024-10-19T23:09:00-00:00...storm...221DEG...18KT...34.31,-104.53"
+                    ],
+                    "BLOCKCHANNEL": [
+                        "EAS",
+                        "NWEM",
+                        "CMAS"
+                    ],
+                    "EAS-ORG": [
+                        "WXR"
+                    ],
+                    "VTEC": [
+                        "/O.EXP.KABQ.TO.W.0009.000000T0000Z-241019T2315Z/"
+                    ],
+                    "eventEndingTime": [
+                        "2024-10-19T23:15:00+00:00"
+                    ],
+                    "expiredReferences": [
+                        "w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.33ea1ab26c628f5c0839806c7a98659680523461.001.1,2024-10-19T17:09:00-06:00 w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.5b7bb36d3c8cfda45c269a1b5360ff4ec85a9be6.001.1,2024-10-19T16:57:00-06:00 w-nws.webmaster@noaa.gov,urn:oid:2.49.0.1.840.0.693761391a49dae89770f4bddbe64016f3eb0e77.001.1,2024-10-19T16:46:00-06:00"
+                    ]
+                }
+            }
+        },
+        {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.33ea1ab26c628f5c0839806c7a98659680523461.001.1",
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -104.52,
+                            34.210000000000001
+                        ],
+                        [
+                            -104.7,
+                            34.289999999999999
+                        ],
+                        [
+                            -104.69,
+                            34.43
+                        ],
+                        [
+                            -104.34,
+                            34.350000000000001
+                        ],
+                        [
+                            -104.52,
+                            34.210000000000001
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.33ea1ab26c628f5c0839806c7a98659680523461.001.1",
+                "@type": "wx:Alert",
+                "id": "urn:oid:2.49.0.1.840.0.33ea1ab26c628f5c0839806c7a98659680523461.001.1",
+                "areaDesc": "De Baca, NM",
+                "geocode": {
+                    "SAME": [
+                        "035011"
+                    ],
+                    "UGC": [
+                        "NMC011"
+                    ]
+                },
+                "affectedZones": [
+                    "https://api.weather.gov/zones/county/NMC011"
+                ],
+                "references": [
+                    {
+                        "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.693761391a49dae89770f4bddbe64016f3eb0e77.001.1",
+                        "identifier": "urn:oid:2.49.0.1.840.0.693761391a49dae89770f4bddbe64016f3eb0e77.001.1",
+                        "sender": "w-nws.webmaster@noaa.gov",
+                        "sent": "2024-10-19T16:46:00-06:00"
+                    },
+                    {
+                        "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.5b7bb36d3c8cfda45c269a1b5360ff4ec85a9be6.001.1",
+                        "identifier": "urn:oid:2.49.0.1.840.0.5b7bb36d3c8cfda45c269a1b5360ff4ec85a9be6.001.1",
+                        "sender": "w-nws.webmaster@noaa.gov",
+                        "sent": "2024-10-19T16:57:00-06:00"
+                    }
+                ],
+                "sent": "2024-10-19T17:09:00-06:00",
+                "effective": "2024-10-19T17:09:00-06:00",
+                "onset": "2024-10-19T17:09:00-06:00",
+                "expires": "2024-10-19T17:15:00-06:00",
+                "ends": "2024-10-19T17:15:00-06:00",
+                "status": "Actual",
+                "messageType": "Update",
+                "category": "Met",
+                "severity": "Extreme",
+                "certainty": "Observed",
+                "urgency": "Immediate",
+                "event": "Tornado Warning",
+                "sender": "w-nws.webmaster@noaa.gov",
+                "senderName": "NWS Albuquerque NM",
+                "headline": "Tornado Warning issued October 19 at 5:09PM MDT until October 19 at 5:15PM MDT by NWS Albuquerque NM",
+                "description": "At 509 PM MDT, a severe thunderstorm capable of producing a tornado\nwas located 10 miles southeast of Yeso, or 21 miles southwest of\nFort Sumner, moving northeast at 20 mph.\n\nHAZARD...Tornado and ping pong ball size hail.\n\nSOURCE...Radar indicated rotation.\n\nIMPACT...Flying debris will be dangerous to those caught without\nshelter. Mobile homes will be damaged or destroyed.\nDamage to roofs, windows and vehicles will occur. Tree\ndamage is likely.\n\nLocations impacted include...\nMainly rural areas of West Central De Baca County.",
+                "instruction": "Move to an interior room on the lowest floor of a well-built\nbuilding away from windows. If you are outdoors, in a mobile home,\nor in a vehicle, move to the closest substantial shelter and protect\nyourself from flying debris.\n\nHeavy rainfall is hiding this tornado. Do not wait to see or hear\nthe tornado. Take cover now!",
+                "response": "Shelter",
+                "parameters": {
+                    "AWIPSidentifier": [
+                        "SVSABQ"
+                    ],
+                    "WMOidentifier": [
+                        "WWUS55 KABQ 192309"
+                    ],
+                    "NWSheadline": [
+                        "TORNADO WARNING REMAINS IN EFFECT UNTIL 515 PM MDT FOR WEST CENTRAL DE BACA COUNTY"
+                    ],
+                    "eventMotionDescription": [
+                        "2024-10-19T22:57:00-00:00...storm...221DEG...18KT...34.26,-104.58"
+                    ],
+                    "maxHailSize": [
+                        "1.50"
+                    ],
+                    "tornadoDetection": [
+                        "RADAR INDICATED"
+                    ],
+                    "BLOCKCHANNEL": [
+                        "EAS",
+                        "NWEM",
+                        "CMAS"
+                    ],
+                    "EAS-ORG": [
+                        "WXR"
+                    ],
+                    "VTEC": [
+                        "/O.CON.KABQ.TO.W.0009.000000T0000Z-241019T2315Z/"
+                    ],
+                    "eventEndingTime": [
+                        "2024-10-19T23:15:00+00:00"
+                    ]
+                },
+                "replacedBy": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.aaded06a16687e86bd85ac2f82eae3844c0e8813.001.1",
+                "replacedAt": "2024-10-19T17:14:00-06:00"
+            }
+        },
+        {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.5b7bb36d3c8cfda45c269a1b5360ff4ec85a9be6.001.1",
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -104.69,
+                            34.43
+                        ],
+                        [
+                            -104.34,
+                            34.350000000000001
+                        ],
+                        [
+                            -104.53,
+                            34.18
+                        ],
+                        [
+                            -104.75,
+                            34.25
+                        ],
+                        [
+                            -104.69,
+                            34.43
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.5b7bb36d3c8cfda45c269a1b5360ff4ec85a9be6.001.1",
+                "@type": "wx:Alert",
+                "id": "urn:oid:2.49.0.1.840.0.5b7bb36d3c8cfda45c269a1b5360ff4ec85a9be6.001.1",
+                "areaDesc": "De Baca, NM",
+                "geocode": {
+                    "SAME": [
+                        "035011"
+                    ],
+                    "UGC": [
+                        "NMC011"
+                    ]
+                },
+                "affectedZones": [
+                    "https://api.weather.gov/zones/county/NMC011"
+                ],
+                "references": [
+                    {
+                        "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.693761391a49dae89770f4bddbe64016f3eb0e77.001.1",
+                        "identifier": "urn:oid:2.49.0.1.840.0.693761391a49dae89770f4bddbe64016f3eb0e77.001.1",
+                        "sender": "w-nws.webmaster@noaa.gov",
+                        "sent": "2024-10-19T16:46:00-06:00"
+                    }
+                ],
+                "sent": "2024-10-19T16:57:00-06:00",
+                "effective": "2024-10-19T16:57:00-06:00",
+                "onset": "2024-10-19T16:57:00-06:00",
+                "expires": "2024-10-19T17:15:00-06:00",
+                "ends": "2024-10-19T17:15:00-06:00",
+                "status": "Actual",
+                "messageType": "Update",
+                "category": "Met",
+                "severity": "Extreme",
+                "certainty": "Observed",
+                "urgency": "Immediate",
+                "event": "Tornado Warning",
+                "sender": "w-nws.webmaster@noaa.gov",
+                "senderName": "NWS Albuquerque NM",
+                "headline": "Tornado Warning issued October 19 at 4:57PM MDT until October 19 at 5:15PM MDT by NWS Albuquerque NM",
+                "description": "At 457 PM MDT, a severe thunderstorm capable of producing a tornado\nwas located 12 miles south of Yeso, or 24 miles southwest of Fort\nSumner, moving northeast at 25 mph.\n\nHAZARD...Tornado and ping pong ball size hail.\n\nSOURCE...Radar indicated rotation.\n\nIMPACT...Flying debris will be dangerous to those caught without\nshelter. Mobile homes will be damaged or destroyed.\nDamage to roofs, windows and vehicles will occur. Tree\ndamage is likely.\n\nLocations impacted include...\nMainly rural areas of West Central De Baca County.",
+                "instruction": "Move to an interior room on the lowest floor of a well-built\nbuilding away from windows. If you are outdoors, in a mobile home,\nor in a vehicle, move to the closest substantial shelter and protect\nyourself from flying debris.\n\nHeavy rainfall is hiding this tornado. Do not wait to see or hear\nthe tornado. Take cover now!",
+                "response": "Shelter",
+                "parameters": {
+                    "AWIPSidentifier": [
+                        "SVSABQ"
+                    ],
+                    "WMOidentifier": [
+                        "WWUS55 KABQ 192257"
+                    ],
+                    "NWSheadline": [
+                        "TORNADO WARNING REMAINS IN EFFECT UNTIL 515 PM MDT FOR WEST CENTRAL DE BACA COUNTY"
+                    ],
+                    "eventMotionDescription": [
+                        "2024-10-19T22:46:00-00:00...storm...213DEG...21KT...34.22,-104.62"
+                    ],
+                    "maxHailSize": [
+                        "1.50"
+                    ],
+                    "tornadoDetection": [
+                        "RADAR INDICATED"
+                    ],
+                    "BLOCKCHANNEL": [
+                        "EAS",
+                        "NWEM",
+                        "CMAS"
+                    ],
+                    "EAS-ORG": [
+                        "WXR"
+                    ],
+                    "VTEC": [
+                        "/O.CON.KABQ.TO.W.0009.000000T0000Z-241019T2315Z/"
+                    ],
+                    "eventEndingTime": [
+                        "2024-10-19T23:15:00+00:00"
+                    ]
+                },
+                "replacedBy": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.aaded06a16687e86bd85ac2f82eae3844c0e8813.001.1",
+                "replacedAt": "2024-10-19T17:14:00-06:00"
+            }
+        },
+        {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.693761391a49dae89770f4bddbe64016f3eb0e77.001.1",
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -104.69,
+                            34.43
+                        ],
+                        [
+                            -104.34,
+                            34.350000000000001
+                        ],
+                        [
+                            -104.61,
+                            34.100000000000001
+                        ],
+                        [
+                            -104.78,
+                            34.149999999999999
+                        ],
+                        [
+                            -104.69,
+                            34.43
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.693761391a49dae89770f4bddbe64016f3eb0e77.001.1",
+                "@type": "wx:Alert",
+                "id": "urn:oid:2.49.0.1.840.0.693761391a49dae89770f4bddbe64016f3eb0e77.001.1",
+                "areaDesc": "De Baca, NM",
+                "geocode": {
+                    "SAME": [
+                        "035011"
+                    ],
+                    "UGC": [
+                        "NMC011"
+                    ]
+                },
+                "affectedZones": [
+                    "https://api.weather.gov/zones/county/NMC011"
+                ],
+                "references": [],
+                "sent": "2024-10-19T16:46:00-06:00",
+                "effective": "2024-10-19T16:46:00-06:00",
+                "onset": "2024-10-19T16:46:00-06:00",
+                "expires": "2024-10-19T17:15:00-06:00",
+                "ends": "2024-10-19T17:15:00-06:00",
+                "status": "Actual",
+                "messageType": "Alert",
+                "category": "Met",
+                "severity": "Extreme",
+                "certainty": "Observed",
+                "urgency": "Immediate",
+                "event": "Tornado Warning",
+                "sender": "w-nws.webmaster@noaa.gov",
+                "senderName": "NWS Albuquerque NM",
+                "headline": "Tornado Warning issued October 19 at 4:46PM MDT until October 19 at 5:15PM MDT by NWS Albuquerque NM",
+                "description": "TORABQ\n\nThe National Weather Service in Albuquerque has issued a\n\n* Tornado Warning for...\nSouthwestern De Baca County in east central New Mexico...\n\n* Until 515 PM MDT.\n\n* At 446 PM MDT, a severe thunderstorm capable of producing a\ntornado was located 16 miles south of Yeso, or 29 miles southwest\nof Fort Sumner, moving northeast at 25 mph.\n\nHAZARD...Tornado and half dollar size hail.\n\nSOURCE...Radar indicated rotation.\n\nIMPACT...Flying debris will be dangerous to those caught\nwithout shelter. Mobile homes will be damaged or\ndestroyed. Damage to roofs, windows and vehicles will\noccur. Tree damage is likely.\n\n* Locations impacted include...\nMainly rural areas of Southwestern De Baca County.",
+                "instruction": "Move to an interior room on the lowest floor of a well-built\nbuilding away from windows. If you are outdoors, in a mobile home,\nor in a vehicle, move to the closest substantial shelter and protect\nyourself from flying debris.\n\nHeavy rainfall is hiding this tornado. Do not wait to see or hear\nthe tornado. Take cover now!",
+                "response": "Shelter",
+                "parameters": {
+                    "AWIPSidentifier": [
+                        "TORABQ"
+                    ],
+                    "WMOidentifier": [
+                        "WFUS55 KABQ 192246"
+                    ],
+                    "eventMotionDescription": [
+                        "2024-10-19T22:46:00-00:00...storm...217DEG...21KT...34.21,-104.62"
+                    ],
+                    "maxHailSize": [
+                        "1.25"
+                    ],
+                    "tornadoDetection": [
+                        "RADAR INDICATED"
+                    ],
+                    "BLOCKCHANNEL": [
+                        "EAS",
+                        "NWEM"
+                    ],
+                    "EAS-ORG": [
+                        "WXR"
+                    ],
+                    "VTEC": [
+                        "/O.NEW.KABQ.TO.W.0009.241019T2246Z-241019T2315Z/"
+                    ],
+                    "eventEndingTime": [
+                        "2024-10-19T23:15:00+00:00"
+                    ],
+                    "WEAHandling": [
+                        "Imminent Threat"
+                    ],
+                    "CMAMtext": [
+                        "NWS: TORNADO WARNING in this area til 5:15 PM MDT. Take shelter now. Check media."
+                    ],
+                    "CMAMlongtext": [
+                        "National Weather Service: TORNADO WARNING in this area until 5:15 PM MDT. Take shelter now in a basement or an interior room on the lowest floor of a sturdy building. If you are outdoors, in a mobile home, or in a vehicle, move to the closest substantial shelter and protect yourself from flying debris. Check media."
+                    ]
+                },
+                "replacedBy": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.aaded06a16687e86bd85ac2f82eae3844c0e8813.001.1",
+                "replacedAt": "2024-10-19T17:14:00-06:00"
+            }
+        }
+    ],
+    "title": "Watches, warnings, and advisories",
+    "updated": "2024-10-19T23:15:15+00:00",
+    "pagination": {
+        "next": "https://api.weather.gov/alerts?severity%5B0%5D=Extreme&limit=500&cursor=eyJ0IjoxNzI5Mzc3OTYwLCJpIjoidXJuOm9pZDoyLjQ5LjAuMS44NDAuMC42OTM3NjEzOTFhNDlkYWU4OTc3MGY0YmRkYmU2NDAxNmYzZWIwZTc3LjAwMS4xIn0%3D"
+    }
+}
