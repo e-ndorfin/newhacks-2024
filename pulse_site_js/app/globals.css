@@ -19,3 +19,13 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.background {
+  height: 100vh; /* Ensures the element covers the full height */
+  background: linear-gradient(135deg, #e66022, #ecab62f7); /* Adjust colors as needed */
+  color: white; /* Change text color for better visibility */
+}
+
+.form-box{ 
+  border: 3px solid #e63424;
+}

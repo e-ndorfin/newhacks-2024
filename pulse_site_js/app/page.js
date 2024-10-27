@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 
+import './globals.css';
+
 export default function Home() {
   const [email, setEmail] = useState('');
   const [companyName, setCompanyName] = useState('');
@@ -11,9 +13,11 @@ export default function Home() {
   const [isStateOpen, setIsStateOpen] = useState(false); // Separate state for states dropdown
 
   const companyTypes = {
-    vendor: "Vendor",
-    ngo: "Non-governmental Organization",
-    seller: "Seller", // Add more entries here if needed
+    software: "Software Development", 
+    it: "IT Services", 
+    consulting: "Consulting", 
+    telecom: "Telecommunications",
+    finance: "Finance",
   };
 
   const states = {
@@ -123,15 +127,15 @@ export default function Home() {
   }; 
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
+    <div className="flex justify-center items-center h-screen background">
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-8 rounded shadow-md w-full max-w-md"
+        className="bg-white p-8 rounded-lg shadow-md w-full max-w-sm form-box"
       >
         <h2 className="text-2xl font-bold mb-6 text-center text-black">Pulse</h2>
 
         <div className="mb-4"> 
-          <label className="block text-gray-700">Email</label>
+          <label className="block text-gray-700">Email <span className="text-red-500">*</span></label>
           <input
             type="email"
             placeholder="adam@example.com"
@@ -143,7 +147,7 @@ export default function Home() {
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700">Company Name</label>
+          <label className="block text-gray-700">Company Name <span className="text-red-500">*</span></label>
           <input
             type="text"
             placeholder="Company X"
@@ -155,7 +159,7 @@ export default function Home() {
         </div>
 
         <div className="mb-4"> 
-          <label className="block text-gray-700">Company Type</label>
+          <label className="block text-gray-700">Company Type <span className="text-red-500">*</span></label>
 
           <div className="relative">
             <button
@@ -206,7 +210,7 @@ export default function Home() {
         </div>
 
         <div className="mb-4"> 
-          <label className="block text-gray-700">States</label>
+          <label className="block text-gray-700">State <span className="text-red-500">*</span></label>
 
           <div className="relative">
             <button
